@@ -5,6 +5,8 @@ package at.fhj.msd;
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+       FightSimulation fightSimulation = new FightSimulation();
+        fightSimulation.createFighters();
+        //fightSimulation.startFight();
     }
 }
