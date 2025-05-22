@@ -49,13 +49,12 @@ public class FightSimulation {
             }
             fighters.add(fighter);
             System.out.println(name + " choose " + fighter.getType());
-              System.out.println("+---------+-------+------------");
+            System.out.println("+---------+-------+------------");
             System.out.println("Characteristics of your " + fighter.getType() + " :");
             System.out.println("Your power: " + fighter.getPower());
             System.out.println("Your speed: " + fighter.getSpeed());
             System.out.println("Your HP: " + fighter.getHp());
-             System.out.println("+---------+-------+------------");
-
+            System.out.println("+---------+-------+------------");
 
         }
     }
