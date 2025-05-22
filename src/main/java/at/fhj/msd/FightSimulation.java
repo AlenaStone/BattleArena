@@ -2,6 +2,7 @@ package at.fhj.msd;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class FightSimulation {
@@ -48,6 +49,7 @@ public class FightSimulation {
                 continue;
             }
             fighters.add(fighter);
+            System.out.println("+---------+-------+------------");
             System.out.println(name + " choose " + fighter.getType());
             System.out.println("+---------+-------+------------");
             System.out.println("Characteristics of your " + fighter.getType() + " :");
@@ -60,6 +62,16 @@ public class FightSimulation {
     }
 
     public void startFight() {
-
+        Fighter f1 = fighters.get(0);
+        Fighter f2 = fighters.get(1);
+        Random random = new Random();
+        boolean firstStarts = random.nextBoolean();
+        if (firstStarts) {
+            System.out.println(f1.getName() + " attacks first!");
+            f2.takeDamage(f1.getPower());
+        } else {
+            System.out.println(f2.getName() + " attacks first!");
+            f1.takeDamage(f2.getPower());
+        }
     }
 }
