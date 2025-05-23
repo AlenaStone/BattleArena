@@ -64,8 +64,14 @@ public class FightSimulation {
     public void startFight() {
         Fighter f1 = fighters.get(0);
         Fighter f2 = fighters.get(1);
+        Fighter f3 = fighters.get(2);
+        Fighter f4 = fighters.get(3);
         Random random = new Random();
         boolean firstStarts = random.nextBoolean();
+
+        while(fighter.isAlive() > 1){
+
+        }
         if (firstStarts) {
             System.out.println(f1.getName() + " attacks first!");
             f2.takeDamage(f1.getPower());
