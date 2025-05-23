@@ -62,22 +62,43 @@ public class FightSimulation {
     }
 
     public void startFight() {
-        Fighter f1 = fighters.get(0);
-        Fighter f2 = fighters.get(1);
-        Fighter f3 = fighters.get(2);
-        Fighter f4 = fighters.get(3);
+
         Random random = new Random();
-        boolean firstStarts = random.nextBoolean();
 
-        while(fighter.isAlive() > 1){
-
+        int aliveCount = 0;
+        for (Fighter f : fighters) {
+            if (f.isAlive()) {
+                aliveCount++;
+            }
         }
-        if (firstStarts) {
-            System.out.println(f1.getName() + " attacks first!");
-            f2.takeDamage(f1.getPower());
-        } else {
-            System.out.println(f2.getName() + " attacks first!");
-            f1.takeDamage(f2.getPower());
+        while (aliveCount > 1) {
+            aliveCount = 0;
+            for (Fighter f : fighters) {
+
+                if (f.isAlive()) {
+                    aliveCount++;
+                }
+            }
+            if (aliveCount <= 1) {
+                break;
+            }
+
+            for (Fighter f : fighters) {
+                if (f.isAlive()) {
+                    int attackerIndex = fighters.indexOf(f);
+                    int targetIndex = random.nextInt(fighters.size());
+                    while (attackerIndex == targetIndex || fighters.get(targetIndex).getHp() == 0) {
+                        targetIndex = random.nextInt(fighters.size());
+                    }
+                    Fighter target = fighters.get(targetIndex);
+                    fighters.get(targetIndex).takeDamage(f.getPower());
+
+                    System.out.println("-------------------------");
+                    System.out.println(f.getName() + " attacks " + target.getName() + " for " + f.getPower() + " damage.");
+                    System.out.println(target.getName() + " HP left: " + target.getHp());
+                    System.out.println("-------------------------");
+                }
+            }
         }
     }
 }
