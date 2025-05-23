@@ -4,9 +4,9 @@ public class Warrior implements Fighter {
 
     private String name;
     private String type = "Warrior";
-    private int power = 15;
+    private int power = 5;
     private int speed = 5;
-    private int hp = 150;
+    private int hp = 200;
     private boolean isAlive = true;
 
     public Warrior(String name) {

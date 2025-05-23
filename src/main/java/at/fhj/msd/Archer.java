@@ -4,7 +4,7 @@ public class Archer implements Fighter {
 
     private String name;
     private String type = "Archer";
-    private int power = 10;
+    private int power = 15;
     private int speed = 15;
     private int hp = 80;
     private boolean isAlive = true;
